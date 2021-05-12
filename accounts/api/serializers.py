@@ -26,7 +26,7 @@ class SignupSerializer(serializers.Serializer):
     # validate function is to change make the data not sensitive to upper case
     def validate(self, data):
         if User.objects.filter(username = data['username'].lower()).exists():
-            raise exceptions.ValidatonError({
+            raise exceptions.ValidationError({
                 'message': 'This username has been occupied.'
             })
         if User.objects.filter(email = data['email'].lower()).exists():
