@@ -96,3 +96,6 @@ class AccountViewSet(viewsets.ViewSet):
             'success':True,
             'user': UserSerializer(user).data,
         }, status=201)
+
+    def list(self, request):
+        return Response({"message": "This is the home page for tweets"})
